@@ -1,6 +1,6 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, useTheme } from "styled-components";
 import {
   useFonts,
   NunitoSans_400Regular,
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar />
+      <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content" />
       {areFontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
