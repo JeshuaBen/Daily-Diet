@@ -7,7 +7,7 @@ const Routes: React.FC = () => {
   const { COLORS } = useTheme();
 
   return (
-    <View>
+    <View style={{ flex: 1, backgroundColor: COLORS.GRAY100 }}>
       <NavigationContainer>
         <StackRoutes />
       </NavigationContainer>
