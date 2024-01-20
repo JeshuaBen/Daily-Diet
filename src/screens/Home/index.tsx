@@ -1,6 +1,7 @@
-import MainHeader from "@components/MainHeader";
 import * as S from "./styles";
+import MainHeader from "@components/MainHeader";
 import StatusBox from "@components/StatusBox";
+import { FlatList } from "react-native";
 
 const Home: React.FC = () => {
   return (
@@ -21,6 +22,8 @@ const Home: React.FC = () => {
           <S.ButtonDescription>Nova refeição</S.ButtonDescription>
         </S.NewMeal>
       </S.ButtonWrapper>
+
+      <FlatList />
     </S.Container>
   );
 };
