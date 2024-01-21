@@ -1,7 +1,7 @@
-import { View } from "react-native";
+import * as S from "./styles";
 
 const DietItem = () => {
-  return <View></View>;
+  return <S.Container></S.Container>;
 };
 
 export default DietItem;
