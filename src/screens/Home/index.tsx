@@ -1,3 +1,4 @@
+import DietItem from "@components/DietItem";
 import * as S from "./styles";
 import MainHeader from "@components/MainHeader";
 import StatusBox from "@components/StatusBox";
@@ -23,7 +24,23 @@ const Home: React.FC = () => {
         </S.NewMeal>
       </S.ButtonWrapper>
 
-      <FlatList />
+      <FlatList
+        data={[
+          {
+            time: "20:00",
+            description: "Refeição 1",
+            status: "badMeal",
+          },
+        ]}
+        keyExtractor={(item) => item.description}
+        renderItem={({ item }) => (
+          <DietItem
+            time={item.time}
+            product={item.description}
+            status={item.status as "badMeal" | "goodMeal"}
+          />
+        )}
+      />
     </S.Container>
   );
 };
