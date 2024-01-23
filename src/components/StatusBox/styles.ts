@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components/native";
 import { TStatusBox } from "./types";
 import { ArrowUpRight } from "phosphor-react-native";
+import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View<TStatusBox>`
   width: 100%;
@@ -18,14 +19,13 @@ export const Container = styled.View<TStatusBox>`
   `}
 `;
 
-export const IconContainer = styled.View`
+export const IconContainer = styled(TouchableOpacity)`
   width: 100%;
   align-items: flex-end;
 `;
 
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
+export const Icon = styled(ArrowUpRight).attrs(() => ({
   size: 24,
-  color: theme.COLORS.GREEN300,
 }))``;
 
 export const TextWrapper = styled.View`
