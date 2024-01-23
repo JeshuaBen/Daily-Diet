@@ -9,7 +9,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const ButtonWrapper = styled.View`
-  margin: 36px 0px;
+  margin: 36px 0px 24px 0px;
   gap: 8px;
 `;
 
@@ -46,4 +46,20 @@ export const ButtonDescription = styled.Text`
     font-family: ${theme.FONT_FAMILY.BOLD};
     font-size: ${theme.FONT_SIZE.SM}px;
   `}
+`;
+
+export const MealContainer = styled.View`
+  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 12px;
+`;
+
+export const Date = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.LG}px;
+    color: ${theme.COLORS.GRAY700};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `}
+
+  margin-bottom: 10px
 `;
