@@ -2,7 +2,8 @@ import DietItem from "@components/DietItem";
 import * as S from "./styles";
 import MainHeader from "@components/MainHeader";
 import StatusBox from "@components/StatusBox";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
+import { Meals } from "./constants";
 
 const Home: React.FC = () => {
   return (
@@ -25,20 +26,20 @@ const Home: React.FC = () => {
       </S.ButtonWrapper>
 
       <FlatList
-        data={[
-          {
-            time: "20:00",
-            description: "Refeição 1",
-            status: "badMeal",
-          },
-        ]}
-        keyExtractor={(item) => item.description}
+        data={Meals}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <DietItem
-            time={item.time}
-            product={item.description}
-            status={item.status as "badMeal" | "goodMeal"}
-          />
+          <S.MealContainer>
+            <S.Date>{item.date}</S.Date>
+            {item.mealDescription.map((meal, index) => (
+              <DietItem
+                key={`${item.id}-${index}`} // Unique key for each DietItem
+                status={meal.status as "goodMeal" | "badMeal"}
+                product={meal.description}
+                time={meal.time}
+              />
+            ))}
+          </S.MealContainer>
         )}
       />
     </S.Container>

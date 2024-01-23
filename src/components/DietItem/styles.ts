@@ -1,17 +1,24 @@
 import styled, { css } from "styled-components/native";
 import { TDietItem } from "./types";
 
-export const Container = styled.View`
+export const Content = styled.View`
+  width: 100%;
+  flex-direction: column;
+`;
+
+export const ItemContainer = styled.View`
   width: 100%;
   border-width: 1px;
   border-style: solid;
   border-color: ${({ theme }) => theme.COLORS.GRAY300};
   border-radius: 6px;
-  padding: 12px;
+  padding: 14px;
 
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 8px;
 `;
 
 export const TimeAndProductWrapper = styled.View`
@@ -49,5 +56,5 @@ export const Status = styled.View<TDietItem>`
   border-radius: 999px;
 
   background-color: ${({ theme, status }) =>
-    status === "goodMeal" ? theme.COLORS.GREEN100 : theme.COLORS.RED100};
+    status === "goodMeal" ? theme.COLORS.GREEN200 : theme.COLORS.RED200};
 `;
