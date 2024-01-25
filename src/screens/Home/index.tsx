@@ -9,8 +9,11 @@ import { useNavigation } from "@react-navigation/native";
 const Home: React.FC = () => {
   const navigation = useNavigation();
 
-  const handleOpenStatistics = (percentage: string) => {
-    navigation.navigate("statistics", { percentage });
+  const handleOpenStatistics = (
+    percentage: string,
+    status: "badMeal" | "goodMeal"
+  ) => {
+    navigation.navigate("statistics", { percentage, status });
   };
 
   return (
@@ -21,7 +24,7 @@ const Home: React.FC = () => {
         status="goodMeal"
         title="90,86%"
         description="das refeições dentro da dieta"
-        onPress={() => handleOpenStatistics("90,86")}
+        onPress={() => handleOpenStatistics("90,86%", "badMeal")}
       />
 
       <S.ButtonWrapper>

@@ -4,6 +4,7 @@ export declare global {
       home: undefined;
       statistics: {
         percentage: string;
+        status: "badMeal" | "goodMeal";
       };
     }
   }

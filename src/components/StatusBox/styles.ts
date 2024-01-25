@@ -32,6 +32,7 @@ export const TextWrapper = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 8px;
 `;
 
 export const Title = styled.Text`
