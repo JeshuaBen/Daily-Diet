@@ -19,7 +19,11 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar backgroundColor="#FAFAFA" barStyle="dark-content" />
+      <StatusBar
+        backgroundColor="#FAFAFA"
+        barStyle="dark-content"
+        translucent
+      />
       {areFontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
