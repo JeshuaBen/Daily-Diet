@@ -3,5 +3,6 @@ export type TSecondaryHeader = {
   status?: "goodMeal" | "badMeal";
   percentage?: string;
   title?: string;
+  bgColor?: string;
   onPress?: () => void;
 };

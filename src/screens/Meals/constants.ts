@@ -1,4 +1,4 @@
-export const Meals = [
+export const MealsInfo = [
   {
     date: "12.08.22",
     id: "1",
