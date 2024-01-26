@@ -10,19 +10,39 @@ export const Container = styled.View`
 export const Content = styled.View<TSecondaryHeader>`
   width: 100%;
   align-items: flex-start;
-  padding: 32px 24px 32px 24px;
+  padding: 24px 24px 32px 24px;
 
-  ${({ theme, status }) =>
-    status === "goodMeal"
-      ? css`
-          background-color: ${theme.COLORS.GREEN100};
-        `
-      : css`
-          background-color: ${theme.COLORS.RED100};
-        `}
+  ${({ theme, status, variant }) =>
+    status === "goodMeal" &&
+    variant === "primary" &&
+    css`
+      background-color: ${theme.COLORS.GREEN100};
+    `}
+
+  ${({ theme, status, variant }) =>
+    status === "badMeal" &&
+    variant === "primary" &&
+    css`
+      background-color: ${theme.COLORS.RED100};
+    `}
+
+    ${({ variant, bgColor }) =>
+    variant === "secondary" &&
+    css`
+      background-color: ${bgColor};
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    `}
 `;
 
-export const Wrapper = styled.View``;
+export const Wrapper = styled.View`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const GoBackButton = styled(TouchableOpacity)``;
 
@@ -38,7 +58,7 @@ export const TextWrapper = styled.View`
   gap: 8px;
 `;
 
-export const Title = styled.Text`
+export const Percentage = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.TITLE}px;
     font-family: ${theme.FONT_FAMILY.BOLD}
@@ -51,5 +71,13 @@ export const Description = styled.Text`
     font-size: ${theme.FONT_SIZE.SM}px;
     color: ${theme.COLORS.GRAY600};
     font-family: ${theme.FONT_FAMILY.REGULAR};
+  `}
+`;
+
+export const PageTitle = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.LG}px;
+    font-family: ${theme.FONT_FAMILY.BOLD}
+    color: ${theme.COLORS.GRAY700}
   `}
 `;

@@ -8,6 +8,7 @@ const SecondaryHeader: React.FC<TSecondaryHeader> = ({
   status,
   percentage,
   title,
+  bgColor,
   onPress,
 }) => {
   const { COLORS } = useTheme();
@@ -23,21 +24,18 @@ const SecondaryHeader: React.FC<TSecondaryHeader> = ({
           </S.GoBackButton>
 
           <S.TextWrapper>
-            <S.Title>{percentage}</S.Title>
+            <S.Percentage>{percentage}</S.Percentage>
             <S.Description>das refeições dentro da dieta</S.Description>
           </S.TextWrapper>
         </S.Content>
       ),
       secondary: (
-        <S.Content variant={variant}>
+        <S.Content variant={variant} bgColor={bgColor}>
+          <S.GoBackButton onPress={onPress}>
+            <S.Icon color={COLORS.GRAY600} />
+          </S.GoBackButton>
           <S.Wrapper>
-            <S.GoBackButton onPress={onPress}>
-              <S.Icon
-                color={status === "goodMeal" ? COLORS.GREEN300 : COLORS.RED300}
-              />
-            </S.GoBackButton>
-
-            <S.Title>{title}</S.Title>
+            <S.PageTitle>{title}</S.PageTitle>
           </S.Wrapper>
         </S.Content>
       ),

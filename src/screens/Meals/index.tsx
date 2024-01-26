@@ -3,10 +3,10 @@ import * as S from "./styles";
 import MainHeader from "@components/MainHeader";
 import StatusBox from "@components/StatusBox";
 import { FlatList, View } from "react-native";
-import { Meals } from "./constants";
+import { MealsInfo } from "./constants";
 import { useNavigation } from "@react-navigation/native";
 
-const Home: React.FC = () => {
+const Meals: React.FC = () => {
   const navigation = useNavigation();
 
   const handleOpenStatistics = (
@@ -14,6 +14,10 @@ const Home: React.FC = () => {
     status: "badMeal" | "goodMeal"
   ) => {
     navigation.navigate("statistics", { percentage, status });
+  };
+
+  const handleOpenNewMeal = () => {
+    navigation.navigate("newMeal");
   };
 
   return (
@@ -30,14 +34,14 @@ const Home: React.FC = () => {
       <S.ButtonWrapper>
         <S.Meals>Refeições</S.Meals>
 
-        <S.NewMeal>
+        <S.NewMeal onPress={handleOpenNewMeal}>
           <S.PlusIcon />
           <S.ButtonDescription>Nova refeição</S.ButtonDescription>
         </S.NewMeal>
       </S.ButtonWrapper>
 
       <FlatList
-        data={Meals}
+        data={MealsInfo}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
@@ -58,4 +62,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Meals;
