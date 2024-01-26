@@ -5,7 +5,7 @@ import styled, { css } from "styled-components/native";
 export const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY100};
-  padding: 24px;
+  padding: 32px 24px 24px 24px;
 `;
 
 export const ButtonWrapper = styled.View`

@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const Content = styled.View<TSecondaryHeader>`
   width: 100%;
   align-items: flex-start;
-  padding: 24px 24px 32px 24px;
+  padding: 32px 24px 32px 24px;
 
   ${({ theme, status }) =>
     status === "goodMeal"
@@ -21,6 +21,8 @@ export const Content = styled.View<TSecondaryHeader>`
           background-color: ${theme.COLORS.RED100};
         `}
 `;
+
+export const Wrapper = styled.View``;
 
 export const GoBackButton = styled(TouchableOpacity)``;
 
@@ -36,7 +38,7 @@ export const TextWrapper = styled.View`
   gap: 8px;
 `;
 
-export const Percentage = styled.Text`
+export const Title = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.TITLE}px;
     font-family: ${theme.FONT_FAMILY.BOLD}
