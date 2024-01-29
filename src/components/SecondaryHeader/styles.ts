@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const Content = styled.View<TSecondaryHeader>`
   width: 100%;
   align-items: flex-start;
-  padding: 24px 24px 32px 24px;
+  padding: 24px 32px 32px 24px;
 
   ${({ theme, status, variant }) =>
     status === "goodMeal" &&
@@ -37,6 +37,7 @@ export const Content = styled.View<TSecondaryHeader>`
 `;
 
 export const Wrapper = styled.View`
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: row;

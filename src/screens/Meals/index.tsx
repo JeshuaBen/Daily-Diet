@@ -5,6 +5,7 @@ import StatusBox from "@components/StatusBox";
 import { FlatList, View } from "react-native";
 import { MealsInfo } from "./constants";
 import { useNavigation } from "@react-navigation/native";
+import Button from "@components/Button";
 
 const Meals: React.FC = () => {
   const navigation = useNavigation();
@@ -34,10 +35,13 @@ const Meals: React.FC = () => {
       <S.ButtonWrapper>
         <S.Meals>Refeições</S.Meals>
 
-        <S.NewMeal onPress={handleOpenNewMeal}>
-          <S.PlusIcon />
-          <S.ButtonDescription>Nova refeição</S.ButtonDescription>
-        </S.NewMeal>
+        <Button
+          variant="primary"
+          Icon={<S.PlusIcon />}
+          hasIcon
+          title="Nova refeição"
+          onPress={handleOpenNewMeal}
+        />
       </S.ButtonWrapper>
 
       <FlatList
