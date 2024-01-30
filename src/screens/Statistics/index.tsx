@@ -12,8 +12,6 @@ const Statistics: React.FC = () => {
   const route = useRoute();
   const { percentage, status } = route.params as StatisticsRouteParams;
 
-  console.log(status);
-
   return (
     <>
       <StatusBar

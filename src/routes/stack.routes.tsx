@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Feedback from "@screens/Feedback";
 import Meals from "@screens/Meals";
 import NewMeal from "@screens/NewMeal";
 import Statistics from "@screens/Statistics";
@@ -18,6 +19,8 @@ const StackRoutes: React.FC = () => {
       <Screen name="statistics" component={Statistics} />
 
       <Screen name="newMeal" component={NewMeal} />
+
+      <Screen name="feedback" component={Feedback} />
     </Navigator>
   );
 };
