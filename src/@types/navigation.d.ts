@@ -10,6 +10,9 @@ export declare global {
       feedback: {
         status: "badMeal" | "goodMeal";
       };
+      mealDetails: {
+        id: string;
+      };
     }
   }
 }
