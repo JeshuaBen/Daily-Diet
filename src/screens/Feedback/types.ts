@@ -1,3 +1,3 @@
 export type TFeedbackScreen = {
-  status?: "badMeal" | "goodMeal";
+  status: "badMeal" | "goodMeal";
 };
