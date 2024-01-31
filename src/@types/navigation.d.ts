@@ -7,6 +7,9 @@ export declare global {
         status: "badMeal" | "goodMeal";
       };
       newMeal: undefined;
+      feedback: {
+        status: "badMeal" | "goodMeal";
+      };
     }
   }
 }
