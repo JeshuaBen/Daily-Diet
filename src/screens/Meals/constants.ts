@@ -4,16 +4,19 @@ export const MealsInfo = [
     id: "1",
     mealDescription: [
       {
+        id: "a",
         time: "20:00",
         description: "Refeição 1",
         status: "badMeal",
       },
       {
+        id: "b",
         time: "20:00",
         description: "Refeição 1",
         status: "goodMeal",
       },
       {
+        id: "c",
         time: "20:00",
         description: "Refeição 1",
         status: "badMeal",
@@ -26,16 +29,19 @@ export const MealsInfo = [
     id: "2",
     mealDescription: [
       {
+        id: "a",
         time: "20:00",
         description: "Refeição 1",
         status: "goodMeal",
       },
       {
+        id: "b",
         time: "20:00",
         description: "Refeição 1",
         status: "badMeal",
       },
       {
+        id: "c",
         time: "20:00",
         description: "Refeição 1",
         status: "badMeal",

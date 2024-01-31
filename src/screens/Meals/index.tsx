@@ -57,6 +57,11 @@ const Meals: React.FC = () => {
                 status={meal.status as "goodMeal" | "badMeal"}
                 product={meal.description}
                 time={meal.time}
+                onPress={() =>
+                  navigation.navigate("mealDetails", {
+                    id: `${item.id}-${meal.id}`,
+                  })
+                }
               />
             ))}
           </S.MealContainer>

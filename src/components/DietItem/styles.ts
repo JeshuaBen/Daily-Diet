@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components/native";
 import { TDietItem } from "./types";
+import { TouchableOpacity } from "react-native";
 
-export const Content = styled.View`
+export const Content = styled(TouchableOpacity)`
   width: 100%;
   flex-direction: column;
 `;
