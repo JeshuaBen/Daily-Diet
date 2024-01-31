@@ -12,7 +12,7 @@ const NewMeal: React.FC = () => {
   const [isSelected, setIsSelected] = useState<string>("");
 
   const { COLORS } = useTheme();
-  const navigate = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <>
@@ -22,7 +22,7 @@ const NewMeal: React.FC = () => {
           variant="secondary"
           title="Nova refeição"
           bgColor={COLORS.GRAY300}
-          onPress={() => navigate.goBack()}
+          onPress={() => navigation.goBack()}
         />
         <S.Content>
           <InputBox variant="text" title="Nome" />
@@ -52,7 +52,13 @@ const NewMeal: React.FC = () => {
           </S.ButtonContainer>
 
           <S.ButtonWrapper>
-            <Button variant="primary" title="Cadastrar refeição" />
+            <Button
+              variant="primary"
+              title="Cadastrar refeição"
+              onPress={() =>
+                navigation.navigate("feedback", { status: "badMeal" })
+              }
+            />
           </S.ButtonWrapper>
         </S.Content>
       </S.Container>

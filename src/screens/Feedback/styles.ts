@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components/native";
-import { TFeedbackScreen } from "./types";
 
 export const Container = styled.View`
   flex: 1;
@@ -12,15 +11,14 @@ export const TitleWrapper = styled.View`
   width: 100%;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 32px;
 `;
 
-export const Title = styled.Text<TFeedbackScreen>`
-  ${({ theme, status }) => css`
-    font-size: ${theme.FONT_SIZE.SM}px;
+export const Title = styled.Text`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.X_LG}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
-    color: ${status !== "badMeal"
-      ? theme.COLORS.GREEN300
-      : theme.COLORS.RED300};
+    text-align: center;
   `}
 `;
 
@@ -29,6 +27,7 @@ export const Description = styled.Text`
     font-size: ${theme.FONT_SIZE.MD}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};
     color: ${theme.COLORS.GRAY700};
+    text-align: center;
   `}
 `;
 
@@ -38,6 +37,13 @@ export const StrongDescription = styled.Text`
     font-family: ${theme.FONT_FAMILY.BOLD};
     color: ${theme.COLORS.GRAY700};
   `}
+`;
+
+export const ImageWrapper = styled.View`
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 `;
 
 export const Image = styled.Image``;
