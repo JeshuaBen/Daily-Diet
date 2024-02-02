@@ -19,7 +19,7 @@ export const RegisterMeal = styled(TouchableOpacity)<TButton>`
   ${({ variant }) =>
     variant === "secondary" &&
     css`
-      background-color: ${({ theme }) => theme.COLORS.GRAY600};
+      background-color: ${({ theme }) => theme.COLORS.GRAY100};
       border-width: 1px;
       border-style: solid;
       border-color: ${({ theme }) => theme.COLORS.GRAY700};
