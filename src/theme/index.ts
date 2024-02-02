@@ -26,6 +26,7 @@ export default {
     SM: 14,
     MD: 16,
     LG: 18,
+    XL: 20,
     X_LG: 24,
     TITLE: 32,
   },
