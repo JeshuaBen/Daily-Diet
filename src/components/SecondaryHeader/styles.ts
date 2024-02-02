@@ -39,10 +39,6 @@ export const Content = styled.View<TSecondaryHeader>`
 export const Wrapper = styled.View`
   flex: 1;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const GoBackButton = styled(TouchableOpacity)``;
@@ -78,7 +74,8 @@ export const Description = styled.Text`
 export const PageTitle = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.LG}px;
-    font-family: ${theme.FONT_FAMILY.BOLD}
-    color: ${theme.COLORS.GRAY700}
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    color: ${theme.COLORS.GRAY700};
+    text-align: center;
   `}
 `;

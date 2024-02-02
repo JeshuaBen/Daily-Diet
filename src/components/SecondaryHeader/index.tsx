@@ -42,7 +42,7 @@ const SecondaryHeader: React.FC<TSecondaryHeader> = ({
     };
 
     return variants[variant];
-  }, [variant, status, title, percentage]);
+  }, [variant, status, title, percentage, bgColor]);
 
   return <S.Container>{SecondaryHeaderVariants}</S.Container>;
 };
