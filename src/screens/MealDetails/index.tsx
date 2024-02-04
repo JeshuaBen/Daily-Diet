@@ -1,11 +1,14 @@
-import SecondaryHeader from "@components/SecondaryHeader";
+import { Alert } from "react-native";
 import * as S from "./styles";
 import { useTheme } from "styled-components/native";
 import { StatusBar } from "expo-status-bar";
+
+import { useNavigation } from "@react-navigation/native";
+
+import SecondaryHeader from "@components/SecondaryHeader";
 import Button from "@components/Button";
 import HighlightedInfoAndDescription from "@components/HighlightedInfoAndDescription";
 import StatusTag from "@components/StatusTag";
-import { useNavigation } from "@react-navigation/native";
 
 const MealDetails: React.FC = () => {
   const { COLORS, FONT_SIZE } = useTheme();
