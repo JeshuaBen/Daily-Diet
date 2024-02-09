@@ -7,18 +7,18 @@ const Button: React.FC<TButton> = ({
   title,
   hasIcon,
   Icon,
-  onPress,
+  ...rest
 }) => {
   const ButtonVariants = useMemo(() => {
     const variants: Record<string, JSX.Element> = {
       primary: (
-        <S.RegisterMeal variant={variant} onPress={onPress}>
+        <S.RegisterMeal variant={variant} {...rest}>
           {hasIcon && Icon}
           <S.ButtonDescription variant={variant}>{title}</S.ButtonDescription>
         </S.RegisterMeal>
       ),
       secondary: (
-        <S.RegisterMeal variant={variant} onPress={onPress}>
+        <S.RegisterMeal variant={variant} {...rest}>
           {hasIcon && Icon}
           <S.ButtonDescription variant={variant}>{title}</S.ButtonDescription>
         </S.RegisterMeal>
