@@ -9,10 +9,21 @@ import SecondaryHeader from "@components/SecondaryHeader";
 import Button from "@components/Button";
 import HighlightedInfoAndDescription from "@components/HighlightedInfoAndDescription";
 import StatusTag from "@components/StatusTag";
+import { useState } from "react";
+import DeleteMealModal from "@components/DeleteMealModal";
 
 const MealDetails: React.FC = () => {
+  const [showRemoveMealModal, setShowRemoveMealModal] =
+    useState<boolean>(false);
+
   const { COLORS, FONT_SIZE } = useTheme();
   const navigation = useNavigation();
+
+  const handleShowRemoveModal = () => {
+    setShowRemoveMealModal(true);
+  };
+
+  console.log(showRemoveMealModal);
 
   return (
     <>
@@ -61,10 +72,18 @@ const MealDetails: React.FC = () => {
               hasIcon
               Icon={<S.TrashIcon />}
               title="Excluir refeição"
+              onPress={handleShowRemoveModal}
             />
           </S.ButtonWrapper>
         </S.Content>
       </S.Container>
+
+      {showRemoveMealModal && (
+        <DeleteMealModal
+          onCancel={() => setShowRemoveMealModal(false)}
+          onConfirm={() => Alert.alert("Excluído com sucesso")}
+        />
+      )}
     </>
   );
 };
