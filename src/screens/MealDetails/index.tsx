@@ -82,6 +82,7 @@ const MealDetails: React.FC = () => {
         <DeleteMealModal
           onCancel={() => setShowRemoveMealModal(false)}
           onConfirm={() => Alert.alert("Excluído com sucesso")}
+          visible={showRemoveMealModal}
         />
       )}
     </>
