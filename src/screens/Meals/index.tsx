@@ -2,7 +2,7 @@ import DietItem from "@components/DietItem";
 import * as S from "./styles";
 import MainHeader from "@components/MainHeader";
 import StatusBox from "@components/StatusBox";
-import { FlatList, View } from "react-native";
+import { FlatList, SectionList, View } from "react-native";
 import { MealsInfo } from "./constants";
 import { useNavigation } from "@react-navigation/native";
 import Button from "@components/Button";
@@ -44,28 +44,27 @@ const Meals: React.FC = () => {
         />
       </S.ButtonWrapper>
 
-      <FlatList
-        data={MealsInfo}
+      <SectionList
+        sections={MealsInfo}
         keyExtractor={(item) => item.id}
-        showsVerticalScrollIndicator={false}
+        stickySectionHeadersEnabled={false}
         renderItem={({ item }) => (
-          <S.MealContainer>
-            <S.Date>{item.date}</S.Date>
-            {item.mealDescription.map((meal, index) => (
-              <DietItem
-                key={`${item.id}-${index}`}
-                status={meal.status as "goodMeal" | "badMeal"}
-                product={meal.description}
-                time={meal.time}
-                onPress={() =>
-                  navigation.navigate("mealDetails", {
-                    id: `${item.id}-${meal.id}`,
-                  })
-                }
-              />
-            ))}
-          </S.MealContainer>
+          <DietItem
+            status={item.status as "goodMeal" | "badMeal"}
+            product={item.description}
+            time={item.time}
+            onPress={() =>
+              navigation.navigate("mealDetails", {
+                id: `${item.id}`,
+              })
+            }
+          />
         )}
+        renderSectionHeader={({ section: { date } }) => <S.Date>{date}</S.Date>}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 50,
+        }}
       />
     </S.Container>
   );

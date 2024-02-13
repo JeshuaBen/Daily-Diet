@@ -8,13 +8,22 @@ const InputBox: React.FC<TInputBox> = ({
   onChangeText,
   value,
   halfSize,
+  placeholder,
+  keyboardType,
+  maxLength,
 }) => {
   const InputBoxVariants = useMemo(() => {
     const variants: Record<string, JSX.Element> = {
       text: (
         <>
           <S.Title>{title}</S.Title>
-          <S.Input value={value} onChangeText={onChangeText} />
+          <S.Input
+            value={value}
+            onChangeText={onChangeText}
+            placeholder={placeholder}
+            keyboardType={keyboardType}
+            maxLength={maxLength}
+          />
         </>
       ),
       textarea: (

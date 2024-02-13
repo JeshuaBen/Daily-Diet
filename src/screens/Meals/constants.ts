@@ -2,7 +2,7 @@ export const MealsInfo = [
   {
     date: "12.08.22",
     id: "1",
-    mealDescription: [
+    data: [
       {
         id: "a",
         time: "20:00",
@@ -27,7 +27,7 @@ export const MealsInfo = [
   {
     date: "13.08.22",
     id: "2",
-    mealDescription: [
+    data: [
       {
         id: "a",
         time: "20:00",
