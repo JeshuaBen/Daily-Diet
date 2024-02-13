@@ -54,6 +54,8 @@ export const MealContainer = styled.View`
   margin-bottom: 12px;
 `;
 
+export const Wrapper = styled.View``;
+
 export const Date = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.LG}px;
@@ -61,5 +63,5 @@ export const Date = styled.Text`
     font-family: ${theme.FONT_FAMILY.BOLD};
   `}
 
-  margin-bottom: 10px
+  margin: 12px 0px 10px 0px
 `;

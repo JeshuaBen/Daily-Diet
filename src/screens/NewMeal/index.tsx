@@ -7,12 +7,28 @@ import Button from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
 import MealStatus from "@components/MealStatus";
 import { useState } from "react";
+import { formatDateOutput } from "@utils/FormatDateOutput";
 
 const NewMeal: React.FC = () => {
   const [isSelected, setIsSelected] = useState<string>("");
 
+  const [date, setDate] = useState<string>("");
+
   const { COLORS } = useTheme();
   const navigation = useNavigation();
+
+  const handleChange = (text: string) => {
+    let newText = text.replace(/[^\d]/g, ""); // Remove tudo que não é dígito
+
+    // Aplica a máscara conforme o usuário digita
+    if (newText.length > 2 && newText.length <= 4) {
+      newText = newText.replace(/^(\d{2})(\d+)/, "$1/$2");
+    } else if (newText.length > 4) {
+      newText = newText.replace(/^(\d{2})(\d{2})(\d+)/, "$1/$2/$3");
+    }
+
+    setDate(newText);
+  };
 
   return (
     <>
@@ -29,8 +45,24 @@ const NewMeal: React.FC = () => {
           <InputBox variant="textarea" title="Descrição" />
 
           <S.DateTimeWrapper>
-            <InputBox variant="text" title="Data" halfSize />
-            <InputBox variant="text" title="Hora" halfSize />
+            <InputBox
+              value={date}
+              variant="text"
+              title="Data"
+              halfSize
+              keyboardType="numeric"
+              placeholder="DD/MM/AA"
+              maxLength={8}
+              onChangeText={handleChange}
+            />
+            <InputBox
+              variant="text"
+              title="Hora"
+              halfSize
+              keyboardType="numeric"
+              placeholder="HH:MM"
+              maxLength={5}
+            />
           </S.DateTimeWrapper>
 
           <S.ButtonContainer>
