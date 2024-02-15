@@ -7,15 +7,29 @@ import Button from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
 import MealStatus from "@components/MealStatus";
 import { useState } from "react";
-import { formatDateOutput } from "@utils/FormatDateOutput";
 
 const NewMeal: React.FC = () => {
   const [isSelected, setIsSelected] = useState<string>("");
 
   const [date, setDate] = useState<string>("");
 
+  const [newMealForm, setNewMealForm] = useState({
+    name: "",
+    description: "",
+    date: "",
+    time: "",
+    isGoodMeal: "",
+  });
+
   const { COLORS } = useTheme();
   const navigation = useNavigation();
+
+  const handleInputChange = (
+    name: "name" | "description" | "date" | "time" | "isGoodMeal",
+    value: string
+  ) => {
+    setNewMealForm((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const handleChange = (text: string) => {
     let newText = text.replace(/[^\d]/g, ""); // Remove tudo que não é dígito
@@ -41,7 +55,11 @@ const NewMeal: React.FC = () => {
           onPress={() => navigation.goBack()}
         />
         <S.Content>
-          <InputBox variant="text" title="Nome" />
+          <InputBox
+            variant="text"
+            title="Nome"
+            onChangeText={(value) => handleInputChange("name", value)}
+          />
           <InputBox variant="textarea" title="Descrição" />
 
           <S.DateTimeWrapper>
