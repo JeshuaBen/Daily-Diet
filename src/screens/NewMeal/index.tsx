@@ -11,8 +11,6 @@ import { useState } from "react";
 const NewMeal: React.FC = () => {
   const [isSelected, setIsSelected] = useState<string>("");
 
-  const [date, setDate] = useState<string>("");
-
   const [newMealForm, setNewMealForm] = useState({
     name: "",
     description: "",
@@ -41,7 +39,7 @@ const NewMeal: React.FC = () => {
       newText = newText.replace(/^(\d{2})(\d{2})(\d+)/, "$1/$2/$3");
     }
 
-    setDate(newText);
+    handleInputChange("date", newText);
   };
 
   return (
@@ -60,11 +58,15 @@ const NewMeal: React.FC = () => {
             title="Nome"
             onChangeText={(value) => handleInputChange("name", value)}
           />
-          <InputBox variant="textarea" title="Descrição" />
+          <InputBox
+            variant="textarea"
+            title="Descrição"
+            onChangeText={(value) => handleInputChange("description", value)}
+          />
 
           <S.DateTimeWrapper>
             <InputBox
-              value={date}
+              value={newMealForm.date}
               variant="text"
               title="Data"
               halfSize
@@ -80,6 +82,7 @@ const NewMeal: React.FC = () => {
               keyboardType="numeric"
               placeholder="HH:MM"
               maxLength={5}
+              onChangeText={(value) => handleInputChange("time", value)}
             />
           </S.DateTimeWrapper>
 
