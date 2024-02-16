@@ -7,6 +7,7 @@ import Button from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
 import MealStatus from "@components/MealStatus";
 import { useState } from "react";
+import { useCreateMeal } from "src/services/useCreateMeal";
 
 const NewMeal: React.FC = () => {
   const [isSelected, setIsSelected] = useState<string>("");
@@ -19,28 +20,17 @@ const NewMeal: React.FC = () => {
     isGoodMeal: "",
   });
 
+  const { handleChange, handleInputChange } = useCreateMeal({
+    name: newMealForm.name,
+    date: newMealForm.date,
+    description: newMealForm.description,
+    time: newMealForm.time,
+    isGoodMeal: newMealForm.isGoodMeal,
+    setNewMealForm,
+  });
+
   const { COLORS } = useTheme();
   const navigation = useNavigation();
-
-  const handleInputChange = (
-    name: "name" | "description" | "date" | "time" | "isGoodMeal",
-    value: string
-  ) => {
-    setNewMealForm((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleChange = (text: string) => {
-    let newText = text.replace(/[^\d]/g, ""); // Remove tudo que não é dígito
-
-    // Aplica a máscara conforme o usuário digita
-    if (newText.length > 2 && newText.length <= 4) {
-      newText = newText.replace(/^(\d{2})(\d+)/, "$1/$2");
-    } else if (newText.length > 4) {
-      newText = newText.replace(/^(\d{2})(\d{2})(\d+)/, "$1/$2/$3");
-    }
-
-    handleInputChange("date", newText);
-  };
 
   return (
     <>
