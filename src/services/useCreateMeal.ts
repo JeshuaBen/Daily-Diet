@@ -1,9 +1,9 @@
+import { Alert } from "react-native";
+import { createMeal } from "@storage/meals/createMeal";
+import { AppError } from "@utils/AppError";
+import { MealStorageDTO } from "@storage/meals/MealStorageDTO";
+
 type TUseCreateMeal = {
-  name: string;
-  description: string;
-  date: string;
-  time: string;
-  isGoodMeal: string;
   setNewMealForm: (
     value: React.SetStateAction<{
       name: string;
@@ -36,8 +36,25 @@ export const useCreateMeal = ({ setNewMealForm }: TUseCreateMeal) => {
     handleInputChange("date", newText);
   };
 
+  const handleCreateMeal = async (newMeal: MealStorageDTO) => {
+    try {
+      await createMeal(newMeal);
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert("Nova Refeição", error.message);
+      } else {
+        Alert.alert(
+          "Nova Refeição",
+          "Não foi possível cadastrar uma nova refeição"
+        );
+        console.log(error);
+      }
+    }
+  };
+
   return {
     handleChange,
     handleInputChange,
+    handleCreateMeal,
   };
 };

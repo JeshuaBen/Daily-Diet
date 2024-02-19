@@ -20,12 +20,7 @@ const NewMeal: React.FC = () => {
     isGoodMeal: "",
   });
 
-  const { handleChange, handleInputChange } = useCreateMeal({
-    name: newMealForm.name,
-    date: newMealForm.date,
-    description: newMealForm.description,
-    time: newMealForm.time,
-    isGoodMeal: newMealForm.isGoodMeal,
+  const { handleChange, handleInputChange, handleCreateMeal } = useCreateMeal({
     setNewMealForm,
   });
 
