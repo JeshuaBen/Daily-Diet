@@ -17,7 +17,7 @@ const NewMeal: React.FC = () => {
     description: "",
     date: "",
     time: "",
-    isGoodMeal: "",
+    isGoodMeal: "goodMeal",
   });
 
   const { handleChange, handleInputChange, handleCreateMeal } = useCreateMeal({
@@ -93,9 +93,21 @@ const NewMeal: React.FC = () => {
             <Button
               variant="primary"
               title="Cadastrar refeição"
-              onPress={() =>
-                navigation.navigate("feedback", { status: "badMeal" })
-              }
+              onPress={() => {
+                handleCreateMeal({
+                  id: "1",
+                  data: [
+                    {
+                      id: "1",
+                      description: newMealForm.description,
+                      status: newMealForm.isGoodMeal as "goodMeal" | "badMeal",
+                      time: newMealForm.time,
+                    },
+                  ],
+                  date: newMealForm.date,
+                }),
+                  navigation.navigate("feedback", { status: "badMeal" });
+              }}
             />
           </S.ButtonWrapper>
         </S.Content>

@@ -10,7 +10,7 @@ type TUseCreateMeal = {
       description: string;
       date: string;
       time: string;
-      isGoodMeal: string;
+      isGoodMeal: "badMeal" | "goodMeal";
     }>
   ) => void;
 };
