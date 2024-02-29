@@ -1,1 +1,1 @@
-export const editMeal = async () => {};
+export const editMeal = async (id: string) => {};
