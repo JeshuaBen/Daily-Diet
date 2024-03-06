@@ -8,7 +8,9 @@ export const createMeal = async (newMeal: MealStorageDTO) => {
   try {
     const storedMeals = await getAllMeals();
 
-    const mealAlreadyIncluded = storedMeals.includes(newMeal.id);
+    const mealAlreadyIncluded = storedMeals.some(
+      (meal) => meal.id === newMeal.id
+    );
 
     if (mealAlreadyIncluded) {
       throw new AppError("Esta refeição já está cadastrada");
